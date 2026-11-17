@@ -4,7 +4,7 @@ import SwiftUI
 // Para cambiar el aspecto se toca este fichero, no las vistas.
 
 extension Color {
-    /// Color principal de TaskApp.
+    /// Color principal de inkd.
     static let taskAccent = Color(red: 0.19, green: 0.38, blue: 0.58)
 }
 

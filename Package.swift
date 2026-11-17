@@ -1,6 +1,6 @@
 // swift-tools-version: 6.2
-// Paquete para Linux y Windows. Compila la MISMA carpeta TaskApp/ que usa Xcode
-// (en Mac se abre TaskApp.xcodeproj y se usa el SwiftUI de Apple).
+// Paquete para Linux y Windows. Compila la MISMA carpeta inkd/ que usa Xcode
+// (en Mac se abre inkd.xcodeproj y se usa el SwiftUI de Apple).
 import PackageDescription
 
 #if os(Linux)
@@ -14,7 +14,7 @@ let backend: Target.Dependency? = nil
 let package = Package(
     name: "inkd",
     // Productos de la línea: cada trait activo es una variable de compilación (#if Prioridades).
-    // En Xcode, el mismo papel lo cumple el target «TaskApp Prioridades».
+    // En Xcode, el mismo papel lo cumple el target «inkd Prioridades».
     traits: [
         .trait(name: "Prioridades", description: "Característica opcional: prioridad de la tarea"),
     ],
@@ -30,9 +30,9 @@ let package = Package(
         ),
         // Mismos ajustes de Swift que el proyecto de Xcode.
         .executableTarget(
-            name: "TaskApp",
+            name: "inkd",
             dependencies: ["SwiftUI"],
-            path: "TaskApp",
+            path: "inkd",
             exclude: ["Assets.xcassets"],
             swiftSettings: [
                 .swiftLanguageMode(.v5),

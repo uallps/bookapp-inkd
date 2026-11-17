@@ -3,7 +3,7 @@
 # Los textos son controles Static (se buscan por texto); los botones con estilo
 # los dibuja SwiftOpenUI (Direct2D). La ventana se coloca siempre en (0,0) con 900x700.
 . "$PSScriptRoot/ui.ps1"
-$bin = swift build --product TaskApp --show-bin-path
+$bin = swift build --product inkd --show-bin-path
 
 function Count-Text([string]$text) { @(Get-Controls $w | Where-Object { $_.Text -eq $text }).Count }
 function Count-Like([string]$pattern) { @(Get-Controls $w | Where-Object { $_.Text -like $pattern }).Count }
@@ -28,7 +28,7 @@ function Click-Sidebar([string]$text) {
     return $true
 }
 
-$app = Start-App "$bin\TaskApp.exe" "taskapp"
+$app = Start-App "$bin\inkd.exe" "inkd"
 if ($app.HasExited) { throw "La app se ha cerrado al arrancar" }
 $w = Get-AppWindow $app.Id
 Snap $w "1-inicio"
@@ -60,7 +60,7 @@ if ((Count-Like "Vence:*") -ne 0) { throw "Con el ajuste apagado no debería ver
 
 # Al volver a abrir se conservan las tareas y los ajustes.
 Stop-Process -Id $app.Id -Force; Start-Sleep -Seconds 2
-$app = Start-App "$bin\TaskApp.exe" "taskapp2"
+$app = Start-App "$bin\inkd.exe" "inkd2"
 if ($app.HasExited) { throw "La app se ha cerrado al volver a abrirla" }
 $w = Get-AppWindow $app.Id
 Snap $w "9-tras-reiniciar"

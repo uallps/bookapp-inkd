@@ -12,11 +12,11 @@ pgrep -x Xvfb >/dev/null || { Xvfb :99 -screen 0 1280x800x24 2>/dev/null & sleep
 
 TRAITS=()
 [ "$VARIANT" != base ] && TRAITS=(--traits "$VARIANT")
-swift build --product TaskApp "${TRAITS[@]}" || exit 1
-BIN="$(swift build --product TaskApp "${TRAITS[@]}" --show-bin-path)/TaskApp"
+swift build --product inkd "${TRAITS[@]}" || exit 1
+BIN="$(swift build --product inkd "${TRAITS[@]}" --show-bin-path)/inkd"
 
 # Empezar sin datos guardados: tareas (JSON) y ajustes (UserDefaults).
-rm -f ~/Documents/tasks.json ~/.config/TaskApp.plist
+rm -f ~/Documents/tasks.json ~/.config/inkd.plist
 
 start() { "$BIN" > "$OUT/app.log" 2>&1 & APP=$!; sleep 5; }
 shot()  { import -window root "$OUT/$1.png"; echo "captura: $OUT/$1.png"; }

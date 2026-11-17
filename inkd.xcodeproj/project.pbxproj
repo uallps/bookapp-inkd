@@ -7,14 +7,14 @@
 	objects = {
 
 /* Begin PBXFileReference section */
-		8589EB2E2E9FF1BD0058A137 /* TaskApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TaskApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1B2C32E2E9FF1BD0058A137 /* TaskApp Prioridades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TaskApp Prioridades.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8589EB2E2E9FF1BD0058A137 /* inkd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = inkd.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1B2C32E2E9FF1BD0058A137 /* inkd Prioridades.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "inkd Prioridades.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		8589EB302E9FF1BD0058A137 /* TaskApp */ = {
+		8589EB302E9FF1BD0058A137 /* inkd */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TaskApp;
+			path = inkd;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -40,7 +40,7 @@
 		8589EB252E9FF1BD0058A137 = {
 			isa = PBXGroup;
 			children = (
-				8589EB302E9FF1BD0058A137 /* TaskApp */,
+				8589EB302E9FF1BD0058A137 /* inkd */,
 				8589EB2F2E9FF1BD0058A137 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,8 +48,8 @@
 		8589EB2F2E9FF1BD0058A137 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8589EB2E2E9FF1BD0058A137 /* TaskApp.app */,
-				A1B2C32E2E9FF1BD0058A137 /* TaskApp Prioridades.app */,
+				8589EB2E2E9FF1BD0058A137 /* inkd.app */,
+				A1B2C32E2E9FF1BD0058A137 /* inkd Prioridades.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,9 +57,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8589EB2D2E9FF1BD0058A137 /* TaskApp */ = {
+		8589EB2D2E9FF1BD0058A137 /* inkd */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8589EB392E9FF1BF0058A137 /* Build configuration list for PBXNativeTarget "TaskApp" */;
+			buildConfigurationList = 8589EB392E9FF1BF0058A137 /* Build configuration list for PBXNativeTarget "inkd" */;
 			buildPhases = (
 				8589EB2A2E9FF1BD0058A137 /* Sources */,
 				8589EB2B2E9FF1BD0058A137 /* Frameworks */,
@@ -70,18 +70,18 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				8589EB302E9FF1BD0058A137 /* TaskApp */,
+				8589EB302E9FF1BD0058A137 /* inkd */,
 			);
-			name = TaskApp;
+			name = inkd;
 			packageProductDependencies = (
 			);
-			productName = TaskApp;
-			productReference = 8589EB2E2E9FF1BD0058A137 /* TaskApp.app */;
+			productName = inkd;
+			productReference = 8589EB2E2E9FF1BD0058A137 /* inkd.app */;
 			productType = "com.apple.product-type.application";
 		};
-		A1B2C32D2E9FF1BD0058A137 /* TaskApp Prioridades */ = {
+		A1B2C32D2E9FF1BD0058A137 /* inkd Prioridades */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1B2C3392E9FF1BF0058A137 /* Build configuration list for PBXNativeTarget "TaskApp Prioridades" */;
+			buildConfigurationList = A1B2C3392E9FF1BF0058A137 /* Build configuration list for PBXNativeTarget "inkd Prioridades" */;
 			buildPhases = (
 				A1B2C32A2E9FF1BD0058A137 /* Sources */,
 				A1B2C32B2E9FF1BD0058A137 /* Frameworks */,
@@ -92,13 +92,13 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
-				8589EB302E9FF1BD0058A137 /* TaskApp */,
+				8589EB302E9FF1BD0058A137 /* inkd */,
 			);
-			name = "TaskApp Prioridades";
+			name = "inkd Prioridades";
 			packageProductDependencies = (
 			);
-			productName = TaskApp;
-			productReference = A1B2C32E2E9FF1BD0058A137 /* TaskApp Prioridades.app */;
+			productName = inkd;
+			productReference = A1B2C32E2E9FF1BD0058A137 /* inkd Prioridades.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -116,7 +116,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8589EB292E9FF1BD0058A137 /* Build configuration list for PBXProject "TaskApp" */;
+			buildConfigurationList = 8589EB292E9FF1BD0058A137 /* Build configuration list for PBXProject "inkd" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -130,8 +130,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8589EB2D2E9FF1BD0058A137 /* TaskApp */,
-				A1B2C32D2E9FF1BD0058A137 /* TaskApp Prioridades */,
+				8589EB2D2E9FF1BD0058A137 /* inkd */,
+				A1B2C32D2E9FF1BD0058A137 /* inkd Prioridades */,
 			);
 		};
 /* End PBXProject section */
@@ -311,7 +311,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = es.ual.TaskApp;
+				PRODUCT_BUNDLE_IDENTIFIER = es.ual.inkd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -353,7 +353,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = es.ual.TaskApp;
+				PRODUCT_BUNDLE_IDENTIFIER = es.ual.inkd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -395,7 +395,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = es.ual.TaskApp.Prioridades;
+				PRODUCT_BUNDLE_IDENTIFIER = es.ual.inkd.Prioridades;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -438,7 +438,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = es.ual.TaskApp.Prioridades;
+				PRODUCT_BUNDLE_IDENTIFIER = es.ual.inkd.Prioridades;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -458,7 +458,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8589EB292E9FF1BD0058A137 /* Build configuration list for PBXProject "TaskApp" */ = {
+		8589EB292E9FF1BD0058A137 /* Build configuration list for PBXProject "inkd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8589EB372E9FF1BF0058A137 /* Debug */,
@@ -467,7 +467,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8589EB392E9FF1BF0058A137 /* Build configuration list for PBXNativeTarget "TaskApp" */ = {
+		8589EB392E9FF1BF0058A137 /* Build configuration list for PBXNativeTarget "inkd" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8589EB3A2E9FF1BF0058A137 /* Debug */,
@@ -476,7 +476,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1B2C3392E9FF1BF0058A137 /* Build configuration list for PBXNativeTarget "TaskApp Prioridades" */ = {
+		A1B2C3392E9FF1BF0058A137 /* Build configuration list for PBXNativeTarget "inkd Prioridades" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1B2C33A2E9FF1BF0058A137 /* Debug */,

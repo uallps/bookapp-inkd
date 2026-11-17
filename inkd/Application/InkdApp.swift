@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct TaskApp: App {
+struct InkdApp: App {
     /// Una sola configuración para toda la app: la comparten Tareas y Ajustes.
     @State private var config = AppConfig()
     @State private var selection: String? = "tareas"
