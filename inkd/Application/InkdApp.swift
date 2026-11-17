@@ -2,16 +2,16 @@ import SwiftUI
 
 @main
 struct InkdApp: App {
-    /// Una sola configuración para toda la app: la comparten Tareas y Ajustes.
+    /// Una sola configuración para toda la app: la comparten Biblioteca y Ajustes.
     @State private var config = AppConfig()
-    @State private var selection: String? = "tareas"
+    @State private var selection: String? = "biblioteca"
 
     var body: some Scene {
         WindowGroup {
 #if os(iOS)
             TabView {
-                TaskListView()
-                    .tabItem { Label("Tareas", systemImage: "checklist") }
+                LibraryView()
+                    .tabItem { Label("Biblioteca", systemImage: "books.vertical") }
                 SettingsView()
                     .tabItem { Label("Ajustes", systemImage: "gearshape") }
             }
@@ -19,8 +19,8 @@ struct InkdApp: App {
 #else
             NavigationSplitView {
                 List(selection: $selection) {
-                    NavigationLink(value: "tareas") {
-                        Label("Tareas", systemImage: "checklist")
+                    NavigationLink(value: "biblioteca") {
+                        Label("Biblioteca", systemImage: "books.vertical")
                     }
                     NavigationLink(value: "ajustes") {
                         Label("Ajustes", systemImage: "gearshape")
@@ -28,8 +28,8 @@ struct InkdApp: App {
                 }
             } detail: {
                 switch selection {
-                case "tareas":
-                    TaskListView()
+                case "biblioteca":
+                    LibraryView()
                 case "ajustes":
                     SettingsView()
                 default:

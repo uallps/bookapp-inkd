@@ -2,23 +2,33 @@ import Foundation
 import Observation
 
 /// Feature flags en ejecución: qué características muestra la app.
-/// Es configuración de la aplicación, no datos de las tareas. Cada flag se guarda en
+/// Es configuración de la aplicación, no datos de los libros. Cada flag se guarda en
 /// UserDefaults al cambiar, así que se conserva al cerrar y volver a abrir la app.
+///
+/// Como en la plantilla, los flags existen en todos los productos; solo el producto
+/// que tiene la característica los usa y muestra su interruptor en Ajustes.
 @Observable
 final class AppConfig {
-    var showDueDates: Bool {
-        didSet { store(showDueDates, forKey: "showDueDates") }
+    /// F2: mostrar el resumen de notas y citas en la lista.
+    var showNotes: Bool {
+        didSet { store(showNotes, forKey: "showNotes") }
     }
-    var showPriorities: Bool {
-        didSet { store(showPriorities, forKey: "showPriorities") }
+    /// O1: mostrar «Prestado a…» en la lista.
+    var showLoans: Bool {
+        didSet { store(showLoans, forKey: "showLoans") }
+    }
+    /// O2: mostrar las fechas de lectura en la lista.
+    var showReadingDates: Bool {
+        didSet { store(showReadingDates, forKey: "showReadingDates") }
     }
 
     @ObservationIgnored private let defaults: UserDefaults
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
-        showDueDates = defaults.object(forKey: "showDueDates") as? Bool ?? true
-        showPriorities = defaults.object(forKey: "showPriorities") as? Bool ?? true
+        showNotes = defaults.object(forKey: "showNotes") as? Bool ?? true
+        showLoans = defaults.object(forKey: "showLoans") as? Bool ?? true
+        showReadingDates = defaults.object(forKey: "showReadingDates") as? Bool ?? true
     }
 
     private func store(_ value: Bool, forKey key: String) {

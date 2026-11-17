@@ -13,10 +13,13 @@ let backend: Target.Dependency? = nil
 
 let package = Package(
     name: "inkd",
-    // Productos de la línea: cada trait activo es una variable de compilación (#if Prioridades).
-    // En Xcode, el mismo papel lo cumple el target «inkd Prioridades».
+    // Productos de la línea: cada trait activo es una variable de compilación (#if Notas).
+    // En Xcode, el mismo papel lo cumple un target por producto («inkd Notas»…).
+    // Se combinan con comas: swift run --traits Notas,Prestamos,FechasLectura inkd
     traits: [
-        .trait(name: "Prioridades", description: "Característica opcional: prioridad de la tarea"),
+        .trait(name: "Notas", description: "F2: notas y citas personales de cada libro"),
+        .trait(name: "Prestamos", description: "Original: a quién se ha prestado un libro y desde cuándo"),
+        .trait(name: "FechasLectura", description: "Original: fechas de inicio y fin de lectura, automáticas"),
     ],
     dependencies: [
         .package(url: "https://github.com/uallps/SwiftOpenUI.git", branch: "uallps"),

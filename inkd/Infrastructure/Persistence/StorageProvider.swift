@@ -1,6 +1,6 @@
-/// Contrato de almacenamiento de tareas. El ViewModel solo conoce este protocolo,
-/// así que se puede cambiar dónde se guardan las tareas sin tocarlo.
+/// Contrato de almacenamiento de la biblioteca. El ViewModel solo conoce este protocolo,
+/// así que se puede cambiar dónde se guardan los libros sin tocarlo.
 protocol StorageProvider {
-    func loadTasks() async throws -> [Task]
-    func saveTasks(tasks: [Task]) async throws
+    func loadBooks() async throws -> [Book]
+    func saveBooks(books: [Book]) async throws
 }
