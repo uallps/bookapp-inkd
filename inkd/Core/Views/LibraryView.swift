@@ -2,7 +2,7 @@ import SwiftUI
 
 /// La biblioteca: formulario de alta arriba y la lista de libros debajo.
 struct LibraryView: View {
-    @State private var viewModel = LibraryViewModel()
+    @State private var viewModel: LibraryViewModel
     /// La configuración la crea la app y llega por el entorno: es la misma que edita Ajustes.
     /// El núcleo no la usa; las características la leen dentro de su `#if` (ver `rowView`).
     @Environment(AppConfig.self) private var config
@@ -10,6 +10,11 @@ struct LibraryView: View {
     /// Lo que se escribe en el formulario de alta, antes de añadir el libro.
     @State private var newTitle = ""
     @State private var newAuthor = ""
+
+    /// Quien crea la biblioteca decide dónde se guardan los libros.
+    init(storageProvider: StorageProvider = JSONStorageProvider()) {
+        _viewModel = State(wrappedValue: LibraryViewModel(storageProvider: storageProvider))
+    }
 
     var body: some View {
         NavigationStack {

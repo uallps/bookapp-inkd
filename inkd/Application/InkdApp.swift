@@ -10,7 +10,9 @@ struct InkdApp: App {
         WindowGroup {
 #if os(iOS)
             TabView {
-                LibraryView()
+                LibraryView(storageProvider: config.storageType.makeProvider())
+                    // Las pestañas conservan su estado: al cambiar de almacenamiento se rehace la lista.
+                    .id(config.storageType)
                     .tabItem { Label("Biblioteca", systemImage: "books.vertical") }
                 SettingsView()
                     .tabItem { Label("Ajustes", systemImage: "gearshape") }
@@ -29,7 +31,8 @@ struct InkdApp: App {
             } detail: {
                 switch selection {
                 case "biblioteca":
-                    LibraryView()
+                    // La biblioteca se crea al elegirla, con el almacenamiento elegido en Ajustes.
+                    LibraryView(storageProvider: config.storageType.makeProvider())
                 case "ajustes":
                     SettingsView()
                 default:
