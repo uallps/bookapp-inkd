@@ -26,15 +26,3 @@ que reexporta SwiftOpenUI, así que `import SwiftUI` funciona sin cambiar el có
 
 Cada característica opcional añade su trait en `Package.swift` y un target en Xcode con el
 trait en *Active Compilation Conditions*.
-
-## Almacenamiento (desde la sesión 7)
-
-Los libros se guardan detrás del protocolo `StorageProvider`, con dos alternativas (solo una activa):
-
-| Alternativa | Dónde | Cómo se elige |
-|---|---|---|
-| JSON | `books.json` en la carpeta Documentos | Por defecto, en los tres sistemas |
-| SwiftData | `inkd.store` en Application Support | Ajustes → Almacenamiento (solo macOS e iOS) |
-
-SwiftData solo existe en los sistemas de Apple: su código está dentro de `#if canImport(SwiftData)`,
-así que en Linux y Windows no se compila y la app guarda siempre en JSON.

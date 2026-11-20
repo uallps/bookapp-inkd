@@ -22,11 +22,6 @@ final class AppConfig {
         didSet { store(showReadingDates, forKey: "showReadingDates") }
     }
 
-    /// Dónde se guardan los libros. En UserDefaults se guarda su nombre ("JSON", "SwiftData").
-    var storageType: StorageType {
-        didSet { store(storageType.rawValue, forKey: "storageType") }
-    }
-
     @ObservationIgnored private let defaults: UserDefaults
 
     init(defaults: UserDefaults = .standard) {
@@ -34,10 +29,9 @@ final class AppConfig {
         showNotes = defaults.object(forKey: "showNotes") as? Bool ?? true
         showLoans = defaults.object(forKey: "showLoans") as? Bool ?? true
         showReadingDates = defaults.object(forKey: "showReadingDates") as? Bool ?? true
-        storageType = StorageType(rawValue: defaults.string(forKey: "storageType") ?? "") ?? .json
     }
 
-    private func store(_ value: Any, forKey key: String) {
+    private func store(_ value: Bool, forKey key: String) {
         defaults.set(value, forKey: key)
         // En Linux y Windows, UserDefaults escribe en disco más tarde: lo forzamos ya.
         defaults.synchronize()
