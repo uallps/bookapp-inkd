@@ -60,3 +60,11 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+
+# inkd (plantilla de la asignatura)
+.DS_Store
+.swiftpm/
+DerivedData/
+shots/
+*-out.txt
+*-err.txt
