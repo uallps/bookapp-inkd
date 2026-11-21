@@ -39,6 +39,9 @@ struct BookDetailView: View {
                 }
             }
             // Secciones de las características: reciben el mismo enlace al libro.
+#if Categorias
+            CategorySection(book: $book)
+#endif
 #if FechasLectura
             ReadingDatesSection(book: $book, draft: $readingDatesDraft)
 #endif

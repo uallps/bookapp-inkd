@@ -13,6 +13,10 @@ final class AppConfig {
     var showNotes: Bool {
         didSet { store(showNotes, forKey: "showNotes") }
     }
+    /// F3: mostrar la categoría en la lista.
+    var showCategories: Bool {
+        didSet { store(showCategories, forKey: "showCategories") }
+    }
     /// O1: mostrar «Prestado a…» en la lista.
     var showLoans: Bool {
         didSet { store(showLoans, forKey: "showLoans") }
@@ -32,6 +36,7 @@ final class AppConfig {
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
         showNotes = defaults.object(forKey: "showNotes") as? Bool ?? true
+        showCategories = defaults.object(forKey: "showCategories") as? Bool ?? true
         showLoans = defaults.object(forKey: "showLoans") as? Bool ?? true
         showReadingDates = defaults.object(forKey: "showReadingDates") as? Bool ?? true
         storageType = StorageType(rawValue: defaults.string(forKey: "storageType") ?? "") ?? .json

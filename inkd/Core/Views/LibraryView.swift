@@ -10,6 +10,10 @@ struct LibraryView: View {
     /// Lo que se escribe en el formulario de alta, antes de añadir el libro.
     @State private var newTitle = ""
     @State private var newAuthor = ""
+#if Categorias
+    /// F3: el filtro de categoría elegido en la lista.
+    @State private var categoryFilter: CategoryFilter = .all
+#endif
 
     /// Quien crea la biblioteca decide dónde se guardan los libros.
     init(storageProvider: StorageProvider = JSONStorageProvider()) {
@@ -27,15 +31,55 @@ struct LibraryView: View {
                     }
                     .disabled(Book.cleanTitle(newTitle) == nil)
                 }
+#if Categorias
+                categoryFilterSection
+#endif
                 Section(header: Text("Mis libros")) {
-                    ForEach(viewModel.books) { book in
+                    ForEach(visibleBooks) { book in
                         bookRow(book: book)
                     }
+#if Categorias
+                    if visibleBooks.isEmpty && !viewModel.books.isEmpty {
+                        Text("No hay libros en esta categoría.")
+                            .inkdCaption()
+                    }
+#endif
                 }
             }
             .navigationTitle("Biblioteca")
         }
     }
+
+    /// Los libros que se muestran: todos, o los que pasan el filtro de categoría (F3).
+    private var visibleBooks: [Book] {
+#if Categorias
+        return Book.filter(viewModel.books, by: activeFilter)
+#else
+        return viewModel.books
+#endif
+    }
+
+#if Categorias
+    /// Las opciones del filtro: Todas, Sin categoría y cada categoría que hay en la biblioteca.
+    private var filterOptions: [CategoryFilter] {
+        [.all, .uncategorized] + Book.categories(in: viewModel.books).map { .category($0) }
+    }
+
+    /// El filtro elegido, o «Todas» si su categoría ya no existe (por ejemplo, tras borrar el último libro).
+    private var activeFilter: CategoryFilter {
+        filterOptions.contains(categoryFilter) ? categoryFilter : .all
+    }
+
+    private var categoryFilterSection: some View {
+        Section(header: Text("Filtrar por categoría")) {
+            Picker("Categoría", selection: $categoryFilter) {
+                ForEach(filterOptions, id: \.self) { option in
+                    Text(option.title).tag(option)
+                }
+            }
+        }
+    }
+#endif
 
     /// Da de alta el libro del formulario y lo vacía. El ViewModel vuelve a comprobar el título.
     private func addBook() {
@@ -64,6 +108,9 @@ struct LibraryView: View {
             book: book,
             advanceStatus: { viewModel.advanceStatus(id: book.id) }
         )
+#if Categorias
+        row.showCategories = config.showCategories
+#endif
 #if Notas
         row.showNotes = config.showNotes
 #endif

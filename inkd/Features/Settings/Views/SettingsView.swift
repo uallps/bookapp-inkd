@@ -20,6 +20,9 @@ struct SettingsView: View {
 #if Prestamos
                 Toggle("Mostrar préstamos", isOn: Self.flag(config, \.showLoans))
 #endif
+#if Categorias
+                Toggle("Mostrar categorías", isOn: Self.flag(config, \.showCategories))
+#endif
 #if Notas
                 Toggle("Mostrar notas y citas", isOn: Self.flag(config, \.showNotes))
 #endif
