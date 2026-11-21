@@ -13,7 +13,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Compilar los productos del proyecto de Xcode
         run: |
-          for scheme in "inkd" "inkd Notas" "inkd Prestamos" "inkd FechasLectura" "inkd Completo"; do
+          for scheme in "inkd" "inkd Progreso" "inkd Notas" "inkd Prestamos" "inkd FechasLectura" "inkd Completo"; do
             xcodebuild -project inkd.xcodeproj -scheme "$scheme" -destination 'platform=macOS' build CODE_SIGNING_ALLOWED=NO
           done
 
@@ -29,13 +29,13 @@ jobs:
       - name: Compilar los productos (base, cada característica y todas juntas)
         run: |
           swift build --product inkd
-          for traits in Notas Categorias Prestamos FechasLectura Notas,Categorias,Prestamos,FechasLectura; do
+          for traits in Progreso Notas Categorias Prestamos FechasLectura Progreso,Notas,Categorias,Prestamos,FechasLectura; do
             swift build --product inkd --traits "$traits"
           done
       - name: Pruebas unitarias (núcleo y todas las características)
         run: |
           swift test
-          swift test --traits Notas,Categorias,Prestamos,FechasLectura
+          swift test --traits Progreso,Notas,Categorias,Prestamos,FechasLectura
       - name: Arrancar y probar la interfaz (producto base)
         run: bash .github/scripts/linux-ui.sh
       - name: Arrancar y probar la interfaz (producto completo)
@@ -66,7 +66,7 @@ jobs:
       - name: Compilar los productos (base, cada característica y todas juntas)
         run: |
           swift build --product inkd
-          foreach ($traits in "Notas", "Categorias", "Prestamos", "FechasLectura", "Notas,Categorias,Prestamos,FechasLectura") {
+          foreach ($traits in "Progreso", "Notas", "Categorias", "Prestamos", "FechasLectura", "Progreso,Notas,Categorias,Prestamos,FechasLectura") {
             swift build --product inkd --traits $traits
             if ($LASTEXITCODE -ne 0) { exit 1 }
           }
@@ -74,7 +74,7 @@ jobs:
         run: |
           swift test
           if ($LASTEXITCODE -ne 0) { exit 1 }
-          swift test --traits Notas,Categorias,Prestamos,FechasLectura
+          swift test --traits Progreso,Notas,Categorias,Prestamos,FechasLectura
           if ($LASTEXITCODE -ne 0) { exit 1 }
       - name: Arrancar y probar la interfaz (producto base)
         run: ./.github/scripts/windows-ui.ps1

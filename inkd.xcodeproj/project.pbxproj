@@ -11,6 +11,7 @@
 		B1B2C32E2E9FF1BD0058A137 /* inkd Notas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "inkd Notas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1B2C32E2E9FF1BD0058A137 /* inkd Prestamos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "inkd Prestamos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B2C32E2E9FF1BD0058A137 /* inkd FechasLectura.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "inkd FechasLectura.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F1B2C32E2E9FF1BD0058A137 /* inkd Progreso.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "inkd Progreso.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1B2C32E2E9FF1BD0058A137 /* inkd Completo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "inkd Completo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -51,6 +52,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F1B2C32B2E9FF1BD0058A137 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1B2C32B2E9FF1BD0058A137 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -75,6 +83,7 @@
 				8589EB2E2E9FF1BD0058A137 /* inkd.app */,
 				E1B2C32E2E9FF1BD0058A137 /* inkd Completo.app */,
 				D1B2C32E2E9FF1BD0058A137 /* inkd FechasLectura.app */,
+				F1B2C32E2E9FF1BD0058A137 /* inkd Progreso.app */,
 				C1B2C32E2E9FF1BD0058A137 /* inkd Prestamos.app */,
 				B1B2C32E2E9FF1BD0058A137 /* inkd Notas.app */,
 			);
@@ -172,6 +181,28 @@
 			productReference = D1B2C32E2E9FF1BD0058A137 /* inkd FechasLectura.app */;
 			productType = "com.apple.product-type.application";
 		};
+		F1B2C32D2E9FF1BD0058A137 /* inkd Progreso */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F1B2C3392E9FF1BF0058A137 /* Build configuration list for PBXNativeTarget "inkd Progreso" */;
+			buildPhases = (
+				F1B2C32A2E9FF1BD0058A137 /* Sources */,
+				F1B2C32B2E9FF1BD0058A137 /* Frameworks */,
+				F1B2C32C2E9FF1BD0058A137 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8589EB302E9FF1BD0058A137 /* inkd */,
+			);
+			name = "inkd Progreso";
+			packageProductDependencies = (
+			);
+			productName = inkd;
+			productReference = F1B2C32E2E9FF1BD0058A137 /* inkd Progreso.app */;
+			productType = "com.apple.product-type.application";
+		};
 		E1B2C32D2E9FF1BD0058A137 /* inkd Completo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1B2C3392E9FF1BF0058A137 /* Build configuration list for PBXNativeTarget "inkd Completo" */;
@@ -226,6 +257,7 @@
 				8589EB2D2E9FF1BD0058A137 /* inkd */,
 				E1B2C32D2E9FF1BD0058A137 /* inkd Completo */,
 				D1B2C32D2E9FF1BD0058A137 /* inkd FechasLectura */,
+				F1B2C32D2E9FF1BD0058A137 /* inkd Progreso */,
 				C1B2C32D2E9FF1BD0058A137 /* inkd Prestamos */,
 				B1B2C32D2E9FF1BD0058A137 /* inkd Notas */,
 			);
@@ -255,6 +287,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D1B2C32C2E9FF1BD0058A137 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1B2C32C2E9FF1BD0058A137 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -293,6 +332,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D1B2C32A2E9FF1BD0058A137 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F1B2C32A2E9FF1BD0058A137 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -722,6 +768,49 @@
 			};
 			name = Debug;
 		};
+		F1B2C33A2E9FF1BF0058A137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = es.ual.inkd.Progreso;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Progreso $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Debug;
+		};
 		D1B2C33B2E9FF1BF0058A137 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -765,6 +854,49 @@
 			};
 			name = Release;
 		};
+		F1B2C33B2E9FF1BF0058A137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
+				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = es.ual.inkd.Progreso;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Progreso $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,7";
+				XROS_DEPLOYMENT_TARGET = 26.0;
+			};
+			name = Release;
+		};
 		E1B2C33A2E9FF1BF0058A137 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -797,7 +929,7 @@
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Notas Categorias Prestamos FechasLectura $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Progreso Notas Categorias Prestamos FechasLectura $(inherited)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -840,7 +972,7 @@
 				SDKROOT = auto;
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Notas Categorias Prestamos FechasLectura $(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "Progreso Notas Categorias Prestamos FechasLectura $(inherited)";
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -895,6 +1027,15 @@
 			buildConfigurations = (
 				D1B2C33A2E9FF1BF0058A137 /* Debug */,
 				D1B2C33B2E9FF1BF0058A137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F1B2C3392E9FF1BF0058A137 /* Build configuration list for PBXNativeTarget "inkd Progreso" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F1B2C33A2E9FF1BF0058A137 /* Debug */,
+				F1B2C33B2E9FF1BF0058A137 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

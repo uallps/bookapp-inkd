@@ -14,6 +14,9 @@ struct SettingsView: View {
             Section(header: Text("Características")) {
                 Text("Elige qué información se ve en la lista de libros.")
                     .inkdCaption()
+#if Progreso
+                Toggle("Mostrar progreso de lectura", isOn: Self.flag(config, \.showProgress))
+#endif
 #if FechasLectura
                 Toggle("Mostrar fechas de lectura", isOn: Self.flag(config, \.showReadingDates))
 #endif

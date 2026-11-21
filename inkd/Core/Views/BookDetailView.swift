@@ -13,6 +13,12 @@ struct BookDetailView: View {
     // Lo que se está escribiendo en las secciones de las características. Vive aquí y no en
     // cada sección porque, en Windows, una vista con @State dentro de otra con @State se
     // queda con 0 de alto (ver `NotesDraft`).
+#if Progreso
+    @State private var progressDraft = ProgressDraft()
+    /// F1: enlace al progreso de este libro, que no está en `Book` sino en `ProgressViewModel`.
+    /// Lo pone la biblioteca solo con el flag activo; `nil` = no se muestra la sección.
+    var progress: Binding<BookProgress>?
+#endif
 #if FechasLectura
     @State private var readingDatesDraft = ReadingDatesDraft()
 #endif
@@ -39,6 +45,11 @@ struct BookDetailView: View {
                 }
             }
             // Secciones de las características: reciben el mismo enlace al libro.
+#if Progreso
+            if let progress {
+                ProgressSection(progress: progress, draft: $progressDraft)
+            }
+#endif
 #if Categorias
             CategorySection(book: $book)
 #endif

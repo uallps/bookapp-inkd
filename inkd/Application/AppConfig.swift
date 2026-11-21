@@ -9,6 +9,10 @@ import Observation
 /// que tiene la característica los usa y muestra su interruptor en Ajustes.
 @Observable
 final class AppConfig {
+    /// F1: mostrar el progreso de lectura en la lista y la sección «Progreso» en el detalle.
+    var showProgress: Bool {
+        didSet { store(showProgress, forKey: "showProgress") }
+    }
     /// F2: mostrar el resumen de notas y citas en la lista.
     var showNotes: Bool {
         didSet { store(showNotes, forKey: "showNotes") }
@@ -35,6 +39,9 @@ final class AppConfig {
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
+        // F1 empieza desactivada: la sesión 4 pide declarar los flags comunes apagados.
+        // Se enciende en Ajustes y la elección se conserva en UserDefaults.
+        showProgress = defaults.object(forKey: "showProgress") as? Bool ?? false
         showNotes = defaults.object(forKey: "showNotes") as? Bool ?? true
         showCategories = defaults.object(forKey: "showCategories") as? Bool ?? true
         showLoans = defaults.object(forKey: "showLoans") as? Bool ?? true

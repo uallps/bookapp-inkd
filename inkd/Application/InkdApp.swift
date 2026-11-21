@@ -5,6 +5,12 @@ struct InkdApp: App {
     /// Una sola configuración para toda la app: la comparten Biblioteca y Ajustes.
     @State private var config = AppConfig()
     @State private var selection: String? = "biblioteca"
+#if Progreso
+    /// F1: el progreso de lectura vive fuera de la biblioteca, con su propio ViewModel y su
+    /// fichero. Se crea una vez aquí (no en `LibraryView`, que se rehace al cambiar de
+    /// almacenamiento) y llega a las vistas por el entorno.
+    @State private var progress = ProgressViewModel()
+#endif
 
     var body: some Scene {
         WindowGroup {
@@ -18,6 +24,9 @@ struct InkdApp: App {
                     .tabItem { Label("Ajustes", systemImage: "gearshape") }
             }
             .environment(config)
+#if Progreso
+            .environment(progress)
+#endif
 #else
             NavigationSplitView {
                 List(selection: $selection) {
@@ -40,6 +49,9 @@ struct InkdApp: App {
                 }
             }
             .environment(config)
+#if Progreso
+            .environment(progress)
+#endif
 #endif
         }
     }

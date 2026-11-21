@@ -6,6 +6,10 @@ struct LibraryView: View {
     /// La configuración la crea la app y llega por el entorno: es la misma que edita Ajustes.
     /// El núcleo no la usa; las características la leen dentro de su `#if` (ver `rowView`).
     @Environment(AppConfig.self) private var config
+#if Progreso
+    /// F1: el progreso de los libros, con su propio ViewModel (lo crea la app).
+    @Environment(ProgressViewModel.self) private var progressStore
+#endif
 
     /// Lo que se escribe en el formulario de alta, antes de añadir el libro.
     @State private var newTitle = ""
@@ -91,14 +95,35 @@ struct LibraryView: View {
 
     /// Una fila: enlace al detalle del libro, con menú contextual para borrarlo.
     private func bookRow(book: Book) -> some View {
-        NavigationLink(destination: BookDetailView(book: binding(for: book))) {
+#if Progreso
+        // F1: el clic no puede leer el entorno (en Windows cierra la app): se captura antes.
+        let store = progressStore
+#endif
+        return NavigationLink(destination: detailView(for: book)) {
             rowView(for: book)
             .contextMenu {
                 Button("Eliminar libro") {
                     viewModel.removeBook(id: book.id)
+#if Progreso
+                    // El progreso del libro se borra con él, aunque el flag esté apagado:
+                    // el flag solo oculta la interfaz, los datos siguen ahí.
+                    store.removeProgress(for: book.id)
+#endif
                 }
             }
         }
+    }
+
+    /// El detalle del libro. Se rellena paso a paso, como `rowView`, porque `#if` no puede
+    /// ir entre los argumentos de una llamada.
+    private func detailView(for book: Book) -> BookDetailView {
+        var detail = BookDetailView(book: binding(for: book))
+#if Progreso
+        if config.showProgress {
+            detail.progress = progressBinding(for: book)
+        }
+#endif
+        return detail
     }
 
     /// La fila con los flags de AppConfig. Se rellena paso a paso porque cada flag solo
@@ -108,6 +133,10 @@ struct LibraryView: View {
             book: book,
             advanceStatus: { viewModel.advanceStatus(id: book.id) }
         )
+#if Progreso
+        row.showProgress = config.showProgress
+        row.progress = progressStore.progress(for: book.id)
+#endif
 #if Categorias
         row.showCategories = config.showCategories
 #endif
@@ -131,4 +160,17 @@ struct LibraryView: View {
             set: { viewModel.updateBook($0) }
         )
     }
+
+#if Progreso
+    /// F1: enlace al progreso de un libro para el detalle. Leer y escribir van al ViewModel
+    /// del progreso (que aplica las reglas y guarda). Se captura el objeto antes porque el
+    /// `set` se ejecuta al escribir, y leer el entorno ahí cierra la app en Windows.
+    private func progressBinding(for book: Book) -> Binding<BookProgress> {
+        let store = progressStore
+        return Binding(
+            get: { store.progress(for: book.id) ?? BookProgress(bookID: book.id) },
+            set: { store.update($0) }
+        )
+    }
+#endif
 }

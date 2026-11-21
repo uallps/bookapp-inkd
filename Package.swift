@@ -24,8 +24,9 @@ let package = Package(
     name: "inkd",
     // Productos de la línea: cada trait activo es una variable de compilación (#if Notas).
     // En Xcode, el mismo papel lo cumple un target por producto («inkd Notas»…).
-    // Se combinan con comas: swift run --traits Notas,Categorias,Prestamos,FechasLectura inkd
+    // Se combinan con comas: swift run --traits Progreso,Notas,Categorias,Prestamos,FechasLectura inkd
     traits: [
+        .trait(name: "Progreso", description: "F1: total de páginas, página actual y porcentaje leído"),
         .trait(name: "Notas", description: "F2: notas y citas personales de cada libro"),
         .trait(name: "Categorias", description: "F3: categoría de cada libro y filtro de la biblioteca"),
         .trait(name: "Prestamos", description: "Original: a quién se ha prestado un libro y desde cuándo"),

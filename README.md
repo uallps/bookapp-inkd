@@ -19,11 +19,12 @@ que reexporta SwiftOpenUI, así que `import SwiftUI` funciona sin cambiar el có
 | Producto | Xcode (Mac) | Linux y Windows |
 |---|---|---|
 | Base (núcleo) | scheme `inkd` | `swift run inkd` |
+| Progreso (F1) | scheme `inkd Progreso` | `swift run --traits Progreso inkd` |
 | Notas y citas (F2) | scheme `inkd Notas` | `swift run --traits Notas inkd` |
 | Categorías (F3) | — (solo en `Completo`) | `swift run --traits Categorias inkd` |
 | Préstamos | scheme `inkd Prestamos` | `swift run --traits Prestamos inkd` |
 | Fechas de lectura | scheme `inkd FechasLectura` | `swift run --traits FechasLectura inkd` |
-| Completo | scheme `inkd Completo` | `swift run --traits Notas,Categorias,Prestamos,FechasLectura inkd` |
+| Completo | scheme `inkd Completo` | `swift run --traits Progreso,Notas,Categorias,Prestamos,FechasLectura inkd` |
 
 Cada característica opcional añade su trait en `Package.swift` y un target en Xcode con el
 trait en *Active Compilation Conditions*.
@@ -40,6 +41,10 @@ Los libros se guardan detrás del protocolo `StorageProvider`, con dos alternati
 SwiftData solo existe en los sistemas de Apple: su código está dentro de `#if canImport(SwiftData)`,
 así que en Linux y Windows no se compila y la app guarda siempre en JSON.
 
+El progreso de lectura (F1) no está dentro de `Book`: tiene su propio ViewModel y su propio
+fichero, `progress.json`, también en Documentos. Cada entrada se une a su libro por el id y se
+guarda siempre en JSON, elija lo que elija Ajustes para los libros.
+
 ## Pruebas
 
 Pruebas unitarias con Swift Testing en `Tests/inkdTests/`. Las del núcleo siempre se
@@ -47,8 +52,9 @@ ejecutan; las de cada característica están dentro de su `#if` y solo con su tr
 
 ```sh
 swift test                                              # núcleo
+swift test --traits Progreso                            # núcleo + F1
 swift test --traits Notas,Categorias                    # núcleo + F2 + F3
-swift test --traits Notas,Categorias,Prestamos,FechasLectura   # todo
+swift test --traits Progreso,Notas,Categorias,Prestamos,FechasLectura   # todo
 ```
 
 La CI las ejecuta en Linux y Windows en cada push. Las pruebas del almacenamiento usan

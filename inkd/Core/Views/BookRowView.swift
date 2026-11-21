@@ -7,6 +7,11 @@ struct BookRowView: View {
     let advanceStatus: () -> Void
 
     // Flags de las características (vienen de AppConfig). Cada uno solo existe en su producto.
+#if Progreso
+    var showProgress = false
+    /// F1: el progreso de este libro. La fila recibe el valor, no el ViewModel del progreso.
+    var progress: BookProgress?
+#endif
 #if Categorias
     var showCategories = true
 #endif
@@ -35,6 +40,12 @@ struct BookRowView: View {
                 }
                 Text(book.status.rawValue)
                     .inkdCaption(color: book.status.color)
+#if Progreso
+                if showProgress, let summary = progress?.summary {
+                    Text(summary)
+                        .inkdCaption()
+                }
+#endif
 #if Categorias
                 if showCategories, let category = book.categoryName {
                     Text(category)
