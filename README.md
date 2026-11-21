@@ -54,16 +54,32 @@ swift test --traits Notas,Categorias,Prestamos,FechasLectura   # todo
 La CI las ejecuta en Linux y Windows en cada push. Las pruebas del almacenamiento usan
 `MockStorageProvider` (o un fichero temporal con nombre único) y nunca tocan tu `books.json`.
 
-## Flujo de trabajo con Git
+## Flujo de trabajo con Git (Git Flow)
 
-El historial de `main` es **lineal**: sin commits de merge. Así, cuando algo falla, se ve
-en qué commit exacto empezó (`git bisect`) y la CI marca ese commit en rojo.
+Seguimos el modelo de ramas de la asignatura:
 
-1. Una rama corta por tarea (`feature/…`, `fix/…`), creada desde `main` actualizado.
-2. Commits pequeños y atómicos, con prefijo `feat:`, `fix:`, `test:` o `ci:`. Cada commit
-   compila y pasa los tests (el código y sus pruebas van en el mismo commit).
-3. Antes de integrar, se pone la rama al día con `git pull --rebase origin main`
-   (no `git merge main`) y se vuelve a pasar `swift test`.
-4. En GitHub, los PR se integran con **Rebase and merge** (o *Squash*), nunca con
-   *Create a merge commit*. Ajuste recomendado: Settings → Rules → *Require linear history*.
-5. Un fallo se arregla con un commit `fix:` que añade primero el test que lo reproduce.
+- `main`: código estable.
+- `develop`: rama de integración de las características.
+- `feature/<característica>-<nombre>`: una rama por característica y por persona
+  (por ejemplo `feature/f3-categorias-diogo`), creada a partir de `develop`.
+
+```sh
+git switch develop && git pull
+git switch -c feature/f3-categorias-diogo      # trabajar y confirmar con mensajes descriptivos
+git switch develop
+git merge --no-ff feature/f3-categorias-diogo  # --no-ff deja visible la rama en el historial
+git log --oneline --graph                      # ver el historial con las ramas
+```
+
+Convenciones:
+
+1. Commits pequeños, con prefijo `feat:`, `fix:`, `test:` o `ci:`. El código y sus pruebas
+   van en el mismo commit, así cada commit compila y pasa `swift test`.
+2. Antes de integrar en `develop`, pasar `swift test` (ver Pruebas) y ponerse al día con
+   `git pull` en `develop`.
+3. Las integraciones se hacen con `--no-ff` (o con *Create a merge commit* si es por PR),
+   no con *Squash*: así se conservan los commits de cada rama y se ve cuándo entró un fallo.
+4. Un fallo se arregla con un commit `fix:` que añade primero el test que lo reproduce.
+5. `project.pbxproj` y `Package.swift` los toca todo el equipo y es donde habrá conflictos:
+   se resuelven conservando lo de las dos ramas. Un `.swift` nuevo dentro de `inkd/` no toca
+   `project.pbxproj` (carpeta sincronizada), así que no da conflicto.
