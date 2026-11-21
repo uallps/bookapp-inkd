@@ -11,6 +11,15 @@ let backend: Target.Dependency = .product(name: "BackendWin32", package: "SwiftO
 let backend: Target.Dependency? = nil
 #endif
 
+// Mismos ajustes de Swift para la app y para los tests (la app es MainActor por defecto).
+let swiftSettings: [SwiftSetting] = [
+    .swiftLanguageMode(.v5),
+    .defaultIsolation(MainActor.self),
+    .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
+    .enableUpcomingFeature("InferIsolatedConformances"),
+    .enableUpcomingFeature("MemberImportVisibility"),
+]
+
 let package = Package(
     name: "inkd",
     // Productos de la línea: cada trait activo es una variable de compilación (#if Notas).
@@ -37,13 +46,16 @@ let package = Package(
             dependencies: ["SwiftUI"],
             path: "inkd",
             exclude: ["Assets.xcassets"],
-            swiftSettings: [
-                .swiftLanguageMode(.v5),
-                .defaultIsolation(MainActor.self),
-                .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
-                .enableUpcomingFeature("InferIsolatedConformances"),
-                .enableUpcomingFeature("MemberImportVisibility"),
-            ]
+            swiftSettings: swiftSettings
+        ),
+        // Pruebas unitarias (Swift Testing). Las de cada característica van dentro de su `#if`:
+        //   swift test                                  → núcleo
+        //   swift test --traits Notas                   → núcleo + esa característica
+        .testTarget(
+            name: "inkdTests",
+            dependencies: ["inkd"],
+            path: "Tests/inkdTests",
+            swiftSettings: swiftSettings
         ),
     ]
 )
