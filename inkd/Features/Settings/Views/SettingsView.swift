@@ -24,8 +24,26 @@ struct SettingsView: View {
                 Toggle("Mostrar notas y citas", isOn: Self.flag(config, \.showNotes))
 #endif
             }
+#if canImport(SwiftData)
+            // Solo en Apple hay dónde elegir; en Linux y Windows los libros van siempre en JSON.
+            Section(header: Text("Almacenamiento")) {
+                Picker("Guardar los libros en", selection: Self.storage(config)) {
+                    ForEach(StorageType.allCases) { type in
+                        Text(type.rawValue).tag(type)
+                    }
+                }
+            }
+#endif
         }
         .navigationTitle("Ajustes")
+    }
+
+    /// Enlace al tipo de almacenamiento de AppConfig.
+    private static func storage(_ config: AppConfig) -> Binding<StorageType> {
+        Binding(
+            get: { config.storageType },
+            set: { config.storageType = $0 }
+        )
     }
 
     /// Enlace a un flag de AppConfig: leer y escribir van directamente a la configuración.
