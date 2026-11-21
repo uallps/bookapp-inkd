@@ -20,6 +20,8 @@ struct Book: Identifiable, Codable {
     /// O2 Fechas de lectura (`inkd/Features/ReadingDates/`).
     var startedAt: Date?
     var finishedAt: Date?
+    /// F3 Categorías (`inkd/Features/Categories/`): una categoría de texto libre. `nil` = sin categoría.
+    var category: String?
 }
 
 extension Book {
@@ -36,6 +38,7 @@ extension Book {
         loanDate = try container.decodeIfPresent(Date.self, forKey: .loanDate)
         startedAt = try container.decodeIfPresent(Date.self, forKey: .startedAt)
         finishedAt = try container.decodeIfPresent(Date.self, forKey: .finishedAt)
+        category = try container.decodeIfPresent(String.self, forKey: .category)
     }
 
     /// El título sin espacios al principio ni al final, o `nil` si queda vacío.

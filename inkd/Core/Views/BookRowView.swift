@@ -7,6 +7,9 @@ struct BookRowView: View {
     let advanceStatus: () -> Void
 
     // Flags de las características (vienen de AppConfig). Cada uno solo existe en su producto.
+#if Categorias
+    var showCategories = true
+#endif
 #if Notas
     var showNotes = true
 #endif
@@ -32,6 +35,12 @@ struct BookRowView: View {
                 }
                 Text(book.status.rawValue)
                     .inkdCaption(color: book.status.color)
+#if Categorias
+                if showCategories, let category = book.categoryName {
+                    Text(category)
+                        .inkdCaption()
+                }
+#endif
 #if FechasLectura
                 if showReadingDates, let summary = book.readingDatesSummary {
                     Text(summary)
