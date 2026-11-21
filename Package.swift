@@ -24,9 +24,10 @@ let package = Package(
     name: "inkd",
     // Productos de la línea: cada trait activo es una variable de compilación (#if Notas).
     // En Xcode, el mismo papel lo cumple un target por producto («inkd Notas»…).
-    // Se combinan con comas: swift run --traits Notas,Prestamos,FechasLectura inkd
+    // Se combinan con comas: swift run --traits Notas,Categorias,Prestamos,FechasLectura inkd
     traits: [
         .trait(name: "Notas", description: "F2: notas y citas personales de cada libro"),
+        .trait(name: "Categorias", description: "F3: categoría de cada libro y filtro de la biblioteca"),
         .trait(name: "Prestamos", description: "Original: a quién se ha prestado un libro y desde cuándo"),
         .trait(name: "FechasLectura", description: "Original: fechas de inicio y fin de lectura, automáticas"),
     ],
@@ -50,7 +51,7 @@ let package = Package(
         ),
         // Pruebas unitarias (Swift Testing). Las de cada característica van dentro de su `#if`:
         //   swift test                                  → núcleo
-        //   swift test --traits Notas                   → núcleo + esa característica
+        //   swift test --traits Notas,Categorias        → núcleo + esas características
         .testTarget(
             name: "inkdTests",
             dependencies: ["inkd"],

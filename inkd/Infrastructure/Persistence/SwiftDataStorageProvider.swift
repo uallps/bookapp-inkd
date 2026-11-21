@@ -19,6 +19,7 @@ final class BookEntity {
     var loanDate: Date?
     var startedAt: Date?
     var finishedAt: Date?
+    var category: String?
     /// SwiftData no guarda el orden de la lista: lo guardamos nosotros.
     var position: Int
 
@@ -32,6 +33,7 @@ final class BookEntity {
         loanDate = book.loanDate
         startedAt = book.startedAt
         finishedAt = book.finishedAt
+        category = book.category
         self.position = position
     }
 
@@ -45,6 +47,7 @@ final class BookEntity {
         loanDate = book.loanDate
         startedAt = book.startedAt
         finishedAt = book.finishedAt
+        category = book.category
         self.position = position
     }
 
@@ -52,7 +55,8 @@ final class BookEntity {
     var book: Book {
         Book(
             id: id, title: title, author: author, status: status, notes: notes,
-            loanedTo: loanedTo, loanDate: loanDate, startedAt: startedAt, finishedAt: finishedAt)
+            loanedTo: loanedTo, loanDate: loanDate, startedAt: startedAt, finishedAt: finishedAt,
+            category: category)
     }
 }
 
