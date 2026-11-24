@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:bookapp-inkd}",
+            "name": "Debug inkd",
+            "target": "inkd",
+            "configuration": "debug",
+            "preLaunchTask": "swift: Build Debug inkd"
+        },
+        {
+            "type": "swift",
+            "request": "launch",
+            "args": [],
+            "cwd": "${workspaceFolder:bookapp-inkd}",
+            "name": "Release inkd",
+            "target": "inkd",
+            "configuration": "release",
+            "preLaunchTask": "swift: Build Release inkd"
+        }
+    ]
+}
